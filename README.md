@@ -39,13 +39,19 @@ This repository provides a comprehensive guide and necessary resources for getti
 ### 2. Flashing Klipper Firmware
 
 - Download the appropriate firmware for your printer from the `KlipperFirmware/` directory.
-- Flash the firmware to the printer's controller board.
+- Flash the firmware to the printer's controller board as described unter `KlipperFirmware/README.md`.
 
 ### 3. Configuring Klipper
 
 - Copy the contents of the `KlipperConfig/` directory to the Raspberry Pi, typically into the `~/printer_data/config` folder.
+- Install moonraker dependencies. Connect via SSH, go to path `cd ~/` and clone dependencies:
+```
+git clone https://github.com/fluidd-core/fluidd-config.git
+git clone https://github.com/protoloft/klipper_z_calibration.git
+./klipper_z_calibration/install.sh
+```
+- Read comments of the `printer.cfg` and edit the configuration files as necessary based on your printer’s hardware. Default: USB mcu is configured
 - Do not forget to do `PROBE_CALIBRATE` and bed mesh leveling.
-- Read comments of the `printer.cfg` and edit the configuration files as necessary based on your printer’s hardware.
 
 ### 4. Setting Up KlipperScreen (Optional)
 
